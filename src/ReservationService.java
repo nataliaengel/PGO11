@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 
-// Glowna logika programu: tworzenie i zwracanie rezerwacji oraz raporty.
-// Tu trzymamy wszystkie kolekcje (studenci, sprzet, rezerwacje).
+
 public class ReservationService {
     private List<Student> students;
     private List<Equipment> equipmentList;
     private List<Reservation> reservations;
     private DiscountPolicy discountPolicy;
-    private int nextReservationNumber; // do generowania id R001, R002, ...
+    private int nextReservationNumber;
 
     public ReservationService(DiscountPolicy discountPolicy) {
         this.discountPolicy = discountPolicy;
@@ -38,8 +37,6 @@ public class ReservationService {
         return reservations;
     }
 
-    // Tworzy rezerwacje, ale tylko gdy wszystkie dane sa poprawne.
-    // W razie bledu rzuca wyjatek z opisem, ktory wypisuje Main.
     public Reservation createReservation(String studentId, String equipmentId, int days) {
         Student student = findStudentById(studentId);
         if (student == null) {
@@ -63,12 +60,12 @@ public class ReservationService {
         nextReservationNumber++;
 
         Reservation reservation = new Reservation(reservationId, student, equipment, days);
-        equipment.setAvailable(false); // sprzet jest teraz zajety
+        equipment.setAvailable(false); 
         reservations.add(reservation);
         return reservation;
     }
 
-    // Zwraca sprzet po id rezerwacji i zwraca liczbe przyznanych punktow.
+  
     public int returnEquipment(String reservationId) {
         Reservation reservation = findReservationById(reservationId);
         if (reservation == null) {
@@ -80,20 +77,19 @@ public class ReservationService {
         }
 
         reservation.setStatus(ReservationStatus.RETURNED);
-        reservation.getEquipment().setAvailable(true); // sprzet znowu dostepny
+        reservation.getEquipment().setAvailable(true); 
 
         double cost = reservation.calculateTotalCost(discountPolicy);
-        int earnedPoints = (int) (cost / 10); // 1 punkt za kazde pelne 10 PLN
+        int earnedPoints = (int) (cost / 10); 
         reservation.getStudent().addLoyaltyPoints(earnedPoints);
         return earnedPoints;
     }
 
-    // Liczy koszt rezerwacji z aktualna polityka znizek (uzywane przez Main i raport).
     public double calculateCost(Reservation reservation) {
         return reservation.calculateTotalCost(discountPolicy);
     }
 
-    // Raport: aktywne i zakonczone rezerwacje, laczny przychod, najlepszy student.
+   
     public void printReport() {
         System.out.println("--- Aktywne rezerwacje ---");
         boolean anyActive = false;
@@ -132,7 +128,7 @@ public class ReservationService {
         }
     }
 
-    // --- metody pomocnicze (prywatne) ---
+
 
     private Student findStudentById(String id) {
         for (Student s : students) {
