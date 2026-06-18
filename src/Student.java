@@ -1,4 +1,4 @@
-// Student, ktory moze wypozyczac sprzet i zbierac punkty lojalnosciowe.
+
 public class Student implements Displayable {
     private String id;
     private String fullName;
@@ -28,7 +28,7 @@ public class Student implements Displayable {
         return loyaltyPoints;
     }
 
-    // Dodaje punkty po zwrocie sprzetu.
+   
     public void addLoyaltyPoints(int points) {
         this.loyaltyPoints += points;
     }
