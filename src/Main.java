@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-// Punkt startowy programu: przygotowuje dane, pokazuje menu i czyta wybor uzytkownika.
-// Cala logika biznesowa jest w ReservationService - tu tylko obsluga konsoli.
+
 public class Main {
     public static void main(String[] args) {
         ReservationService service = new ReservationService(new LoyaltyDiscountPolicy());
@@ -41,7 +40,7 @@ public class Main {
         }
     }
 
-    // Przykladowe dane startowe (bez bazy danych i plikow).
+
     private static void seedData(ReservationService service) {
         service.addStudent(new Student("S001", "Anna Kowalska", "12c", 120));
         service.addStudent(new Student("S002", "Marek Nowak", "12c", 40));
