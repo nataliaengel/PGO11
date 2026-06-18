@@ -1,4 +1,4 @@
-// Zestaw kamerowy - konkretny typ sprzetu.
+
 public class CameraKit extends Equipment {
     private int lensCount;
     private boolean hasTripod;
@@ -9,8 +9,7 @@ public class CameraKit extends Equipment {
         this.hasTripod = hasTripod;
     }
 
-    // Cena dzienna kamery: cena bazowa + 10 PLN za kazdy obiektyw,
-    // +15 PLN jesli zestaw ma statyw.
+
     @Override
     public double calculateDailyPrice() {
         double price = getBaseDailyPrice();
