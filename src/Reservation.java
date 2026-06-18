@@ -1,4 +1,4 @@
-// Pojedyncza rezerwacja. Trzyma obiekty Student i Equipment (a nie tylko ich id).
+
 public class Reservation implements Displayable {
     private String id;
     private Student student;
@@ -11,7 +11,7 @@ public class Reservation implements Displayable {
         this.student = student;
         this.equipment = equipment;
         this.days = days;
-        this.status = ReservationStatus.ACTIVE; // nowa rezerwacja jest aktywna
+        this.status = ReservationStatus.ACTIVE; 
     }
 
     public String getId() {
@@ -38,8 +38,6 @@ public class Reservation implements Displayable {
         this.status = status;
     }
 
-    // Calkowity koszt = cena dzienna * liczba dni, a na koncu naliczamy znizke.
-    // Cena dzienna liczona jest polimorficznie (laptop liczy inaczej niz kamera).
     public double calculateTotalCost(DiscountPolicy discountPolicy) {
         double priceBeforeDiscount = equipment.calculateDailyPrice() * days;
         return discountPolicy.applyDiscount(student, priceBeforeDiscount);
