@@ -1,4 +1,4 @@
-// Zestaw laptopowy - konkretny typ sprzetu.
+
 public class LaptopSet extends Equipment {
     private int ramGb;
     private boolean hasDockingStation;
@@ -9,8 +9,7 @@ public class LaptopSet extends Equipment {
         this.hasDockingStation = hasDockingStation;
     }
 
-    // Cena dzienna laptopa: cena bazowa, +5 PLN za stacje dokujaca,
-    // +25 PLN jesli ma co najmniej 32 GB RAM.
+   
     @Override
     public double calculateDailyPrice() {
         double price = getBaseDailyPrice();
