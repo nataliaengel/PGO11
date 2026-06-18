@@ -1,5 +1,4 @@
-// Klasa abstrakcyjna bazowa dla calego sprzetu.
-// Kazdy typ sprzetu sam liczy swoja cene dzienna (polimorfizm).
+
 public abstract class Equipment implements Displayable {
     private String id;
     private String name;
@@ -10,7 +9,7 @@ public abstract class Equipment implements Displayable {
         this.id = id;
         this.name = name;
         this.baseDailyPrice = baseDailyPrice;
-        this.available = true; // nowy sprzet jest od razu dostepny
+        this.available = true; 
     }
 
     public String getId() {
@@ -33,7 +32,7 @@ public abstract class Equipment implements Displayable {
         this.available = available;
     }
 
-    // Te dwie metody musza nadpisac klasy potomne.
+   
     public abstract double calculateDailyPrice();
 
     public abstract String getDetails();
